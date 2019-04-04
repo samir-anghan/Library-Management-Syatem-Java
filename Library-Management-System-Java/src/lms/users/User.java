@@ -9,11 +9,21 @@ package lms.users;
  */
 public class User extends RegisteredUser {
 	
-	private double penaltyDueAmount;
+	private static User TheUniqueUser;
+
+	public static User getInstance() {
+		if (User.TheUniqueUser == null) {
+			User.TheUniqueUser = new User();
+		}
+		return User.TheUniqueUser;
+	}
 	
-	public User() {
+	// To prevent creating instance
+	private User() {
 		
 	}
+	
+	private double penaltyDueAmount;
 	
 	public double getPenaltyDueAmount() {
 		return penaltyDueAmount;

@@ -8,13 +8,27 @@ package lms.users;
  *
  */
 public class GuestUser {
-	
-	public void signUp() {
-		
+
+	private static GuestUser TheUniqueGuestUser;
+
+	public static GuestUser getInstance() {
+		if (GuestUser.TheUniqueGuestUser == null) {
+			GuestUser.TheUniqueGuestUser = new GuestUser();
+		}
+		return GuestUser.TheUniqueGuestUser;
 	}
 	
-	public void searchBook() {
+	// To prevent creating instance
+	private GuestUser() {
 		
+	}
+
+	public void signUp() {
+		System.out.println("\nSigning up.....");
+	}
+
+	public void searchBook() {
+		System.out.println("\nSearching book.....");
 	}
 
 }

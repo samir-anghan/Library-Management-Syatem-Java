@@ -8,7 +8,7 @@ package lms.users;
  *
  */
 public class RegisteredUser {
-	
+
 	protected String username;
 	protected int Id;
 	protected String firstName;
@@ -16,7 +16,7 @@ public class RegisteredUser {
 	protected String password;
 	protected String securityQuestion;
 	protected String answer;
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -76,18 +76,41 @@ public class RegisteredUser {
 	public RegisteredUser() {
 		super();
 	}
-	
-	public void login() {
-		
+
+	public boolean login(String userName, String passWord, String userType) {
+
+		String typeOfUser = userType.toLowerCase();
+
+		switch (typeOfUser) {
+		case "user":
+			if (userName.equalsIgnoreCase("user123") && passWord.equalsIgnoreCase("user123")) {
+				System.out.println("LOG: You are now logged in as User.");
+				return true;
+			} else {
+				System.out.println("\nInvalid username or password, try again!");
+				return false;
+			}
+
+		case "admin":
+			if (userName.equalsIgnoreCase("admin123") && passWord.equalsIgnoreCase("admin123")) {
+				System.out.println("LOG: You are logged in as Admin.");
+				return true;
+			} else {
+				System.out.println("\nInvalid username or password, try again!");
+				return false;
+			}
+
+		default:
+			return false;
+		}
 	}
-	
+
 	public void logout() {
-		
+
 	}
-	
+
 	public void forgot() {
-		
+
 	}
-	
 
 }
