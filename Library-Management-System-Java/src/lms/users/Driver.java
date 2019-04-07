@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class Driver {
 
 	public static void main(String[] args) {
-		
-		HelperDriver helperDriver = HelperDriver.getInstance();
+
+		HelperDriver helperDriver = new HelperDriver();
 		
 		helperDriver.initialSetup();
 		
@@ -39,6 +39,11 @@ public class Driver {
 		case 2:
 			System.out.println(">>>>>>LOG: You have selected User.");
 			helperDriver.processUser();
+			break;
+		
+		case 3:
+			System.out.println(">>>>>>LOG: You have selected Admin.");
+			helperDriver.processAdmin();
 			break;
 			
 		default:

@@ -17,6 +17,18 @@ public class RegisteredUser {
 	protected String securityQuestion;
 	protected String answer;
 
+	public RegisteredUser(String username, int id, String firstName, String lastName, String password,
+			String securityQuestion, String answer) {
+		super();
+		this.username = username;
+		Id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.securityQuestion = securityQuestion;
+		this.answer = answer;
+	}
+
 	public String getUsername() {
 		return username;
 	}

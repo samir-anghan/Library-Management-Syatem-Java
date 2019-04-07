@@ -3,6 +3,7 @@
  */
 package lms.users;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,9 @@ public class Penalty {
 	private int receipt_no;
 	private Date date;
 	
-	User borrower = User.getInstance();
+	HelperDriver helperDriver = new HelperDriver();
+	ArrayList<User> userList = helperDriver.getUserList();
+	private User borrower = userList.get(0);
 	LoanedBook book = new LoanedBook();
 	
 	public int getReceipt_no() {
