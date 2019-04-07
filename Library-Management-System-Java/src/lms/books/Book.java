@@ -12,9 +12,23 @@ public class Book {
 	protected String title;
 	protected String type;
 	protected String author;
-	protected String nop;
+	protected int nop;
 	protected int Id;
 	protected boolean onLoan;
+	
+	public Book(String title, String type, String author, int nop, int id, boolean onLoan) {
+		super();
+		this.title = title;
+		this.type = type;
+		this.author = author;
+		this.nop = nop;
+		Id = id;
+		this.onLoan = onLoan;
+	}
+	
+	public Book() {
+		
+	}
 	
 	public String getTitle() {
 		return title;
@@ -40,11 +54,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public String getNop() {
+	public int getNop() {
 		return nop;
 	}
 
-	public void setNop(String nop) {
+	public void setNop(int nop) {
 		this.nop = nop;
 	}
 

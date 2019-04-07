@@ -15,6 +15,8 @@ public class Driver {
 		
 		HelperDriver helperDriver = HelperDriver.getInstance();
 		
+		helperDriver.initialSetup();
+		
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("=============== :: LIBRARY MANAGEMENT SYSTEM :: ===============");
@@ -30,12 +32,12 @@ public class Driver {
 		
 		switch (userChoice) {
 		case 1:
-			System.out.println("LOG: You have selected Guest user.");
+			System.out.println(">>>>>>LOG: You have selected Guest user.");
 			helperDriver.processGuestUser();
 			break;
 			
 		case 2:
-			System.out.println("LOG: You have selected User.");
+			System.out.println(">>>>>>LOG: You have selected User.");
 			helperDriver.processUser();
 			break;
 			
