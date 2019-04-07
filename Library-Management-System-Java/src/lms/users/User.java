@@ -65,8 +65,7 @@ public class User extends RegisteredUser {
 	}
 
 	public void searchBook(String searchKeyword) {
-
-		// Gets all books name
+		
 		List<String> searchResult = new ArrayList<String>();
 
 		ArrayList<Book> availableBooksList = booksList;

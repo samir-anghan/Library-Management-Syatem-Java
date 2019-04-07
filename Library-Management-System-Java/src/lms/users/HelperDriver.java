@@ -117,6 +117,24 @@ public class HelperDriver {
 
 		return bookFromId;
 	}
+	
+	private User getUserFromId(int userId) {
+
+		User userFromId = null;
+
+		for (User user : userList) {
+			if (user.getId() == userId) {
+				userFromId = user;
+				break;
+			}
+		}
+
+		if (userFromId == null) {
+			System.out.println("ERROR!!! Please enter a valid user id.");
+		}
+
+		return userFromId;
+	}
 
 	public void processGuestUser() {
 		Scanner in = new Scanner(System.in);
@@ -290,10 +308,45 @@ public class HelperDriver {
 			break;
 
 		case 5:
+			System.out.println("Enter book id to modify a book:");
+			int modifyBookId = in.nextInt();
+			Book bookToBeModified = getBookFromId(modifyBookId);
+
+			if (bookToBeModified != null) {
+				admin.modifyBook(bookToBeModified);
+			}
 			break;
+
 			
 		case 6:
+			admin.showAllUsers();
+			break;
+			
+		case 7:
+			System.out.println("Enter user first name or last name keyword to search, e.g. John:");
+			String searchKeyword = in.nextLine();
+			admin.searchUser(searchKeyword);
+			break;
+			
+		case 8:
+			System.out.println("Enter user id to modify user information:");
+			int modifyUserId = in.nextInt();
+			User userToBeModified = getUserFromId(modifyUserId);
 
+			if (userToBeModified != null) {
+				admin.updateUser(userToBeModified);
+			}
+			break;
+			
+		case 9:
+			System.out.println("Enter user id to delete a user:");
+			int deleteUserId = in.nextInt();
+			User userToBeDeleted = getUserFromId(deleteUserId);
+			if (userToBeDeleted != null) {
+				admin.deleteUser(userToBeDeleted);
+			}
+			break;
+			
 		default:
 			System.out.println("\nINVALID CHOICE !!! TRY AGAIN !!!");
 			break;
